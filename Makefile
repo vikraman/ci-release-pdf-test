@@ -4,7 +4,7 @@ PDF = $(subst .tex,.pdf,$(TEX))
 all: $(PDF)
 
 %.pdf: %.tex
-	latexmk -pdf $<
+	latexmk -xelatex $<
 
 clean:
 	latexmk -C
