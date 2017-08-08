@@ -5,7 +5,7 @@ cache:
 addons:
   apt:
     sources:
-    - sourceline: 'ppa:jonathonf/texlive-2016'
+    - sourceline: ppa:jonathonf/texlive-2016
     packages:
     - texlive
     - texlive-latex-extra
@@ -19,11 +19,11 @@ after_success:
 - git push --tags https://${GITHUB_OAUTH_TOKEN}@github.com/vikraman/ci-release-pdf-test.git
 deploy:
   provider: releases
-  api_key: $GITHUB_OAUTH_TOKEN
+  api_key: ${GITHUB_OAUTH_TOKEN}
   file: main.pdf
   skip_cleanup: true
   on:
     tags: true
 env:
   global:
-    - secure: fCSTTVgodMBa2gzr+RNe0m/EB96aMTxqD/61D/Stu5MsXa89jOkVvLlYl+uZhlcHKXp7btp6x9dmaXNbbcLbggl7oagD/Bf7De7py1xb+jDazKczoWasgn63Gx25p4pTE/8UOHX3QsfrTrq5XDttUuZHFpwfE3oz+p2QPZ1EgN/p9iWyhwLsG2cMP0aSy+6sRkOkvGbzSMIdFiJrwsLAd407avyUymQYbQx3jp6BpknIx1jLaOz6PoenQetiLT98rU58DIBNxIHzr4vdn/UVoWgi6p8vTMIpKMfo78qgqhtU019c637MZqrUya6gL0GEe/Q5E6LSQTowWtmmYOpInNUv9u7FWzEgGHMjzz0TdRnG3tb4KB/ZO+Le/aBGC/8CLfYVyQHjuyXQ9fTXCwkQr/CBt0/W4kKmH8D/AixakN3rPVw4HA2Lt3BC64x62wH4PbFMWQ+7Fbd2DQsDYprbhXJCTZqgGgn9/dQSsMvmacLVjYI+VaUSG07H1eovpOH781Y1N1tRiaf2aVjHsMWhN0aFtbvUBOO0PCbYtoypaTLkdpf1dfZaKcHjsCpFTCjcZ/zxkTt4G/Tn1P9ikXK2bwczhTfKzDCezjJHmvNjyqWedML7XtJ5GtvjKU1sUKDVWSbkkC+Rf/DBb5LamAOlYTsS+Ff0Fc8cRIdFMBliuPE=
+  - secure: VZxgqPri0FX07Q0Fr/GEzxgmRPf1B3WjP0D2j7ECtrwTNtXvqTemNJ37O/IA2L8b9di5f9atdpUKNSYXhikZSipOK62uMlqZcaqu6X97h0tc/ONlEpo+v+E9gTHKDd8NZsyHKTAOj+OjF8oeWzOfynkoCqUmp9fwE2fUeORwNwplVoEsbtE7VS7hvNuBbKUYEVJ84ndSKlUNfHngUtGhUKDYeZMASKMjJJ9ofGDQT/n15TYtbXoWAcy3uHfvkeh9tj0KFr3FQGH1rLrP/J3iWVSVxwCwrzP74wF6RcZFE/qDDmyQNiDhrhR6K+m24aepKbLAL2n01kaimEkhCEd79FEUONN38xCWaX5HWtK2qN5LVVvLbqFfUiJ/8I2F045HErOAci7P18BGDmGbG+CdPcAZ/6b7TtUj3sMBZy1ufeU/6ueXG8tv7p0RajwtvlstjC+pMe+QAMr8ZkoHb4qtig2RR8X7GfbiM+mRpSGhr0lY6sg3METlBn1+vvPTJICbaQJpI9mUkvq+CFvdzjxVL7k1IufQ98HEd3Lph1noDdybf9yPxVQSJzMO0HSQVOdb+zM/HU4tSTSUkWS+gxsBQ6DkeIEttXlAJBUFIljhSCHSrXYuGjclHXQ9sXEjVQ2fOO/vmLDjSybB3a/A5SWm8A118Q0Py0sYp3ZHgdkszpI=
