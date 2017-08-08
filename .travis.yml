@@ -1,3 +1,5 @@
+language:
+  generic
 before_install:
 - sudo add-apt-repository ppa:jonathonf/texlive-2016
 - sudo apt-get -qq -y update
