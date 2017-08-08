@@ -12,11 +12,18 @@ addons:
     - latexmk
 script:
 - make
+after_success:
+- git config --global user.email "builds@travis-ci.com"
+- git config --global user.name "Travis CI"
+- git tag -f draft HEAD
+- git push --tags https://${GITHUB_OAUTH_TOKEN}@github.com/vikraman/ci-release-pdf-test.git
 deploy:
   provider: releases
-  api_key:
-    secure: fCSTTVgodMBa2gzr+RNe0m/EB96aMTxqD/61D/Stu5MsXa89jOkVvLlYl+uZhlcHKXp7btp6x9dmaXNbbcLbggl7oagD/Bf7De7py1xb+jDazKczoWasgn63Gx25p4pTE/8UOHX3QsfrTrq5XDttUuZHFpwfE3oz+p2QPZ1EgN/p9iWyhwLsG2cMP0aSy+6sRkOkvGbzSMIdFiJrwsLAd407avyUymQYbQx3jp6BpknIx1jLaOz6PoenQetiLT98rU58DIBNxIHzr4vdn/UVoWgi6p8vTMIpKMfo78qgqhtU019c637MZqrUya6gL0GEe/Q5E6LSQTowWtmmYOpInNUv9u7FWzEgGHMjzz0TdRnG3tb4KB/ZO+Le/aBGC/8CLfYVyQHjuyXQ9fTXCwkQr/CBt0/W4kKmH8D/AixakN3rPVw4HA2Lt3BC64x62wH4PbFMWQ+7Fbd2DQsDYprbhXJCTZqgGgn9/dQSsMvmacLVjYI+VaUSG07H1eovpOH781Y1N1tRiaf2aVjHsMWhN0aFtbvUBOO0PCbYtoypaTLkdpf1dfZaKcHjsCpFTCjcZ/zxkTt4G/Tn1P9ikXK2bwczhTfKzDCezjJHmvNjyqWedML7XtJ5GtvjKU1sUKDVWSbkkC+Rf/DBb5LamAOlYTsS+Ff0Fc8cRIdFMBliuPE=
+  api_key: $GITHUB_OAUTH_TOKEN
   file: main.pdf
   skip_cleanup: true
   on:
-    repo: vikraman/ci-release-pdf-test
+    tags: true
+env:
+  global:
+    - secure: fCSTTVgodMBa2gzr+RNe0m/EB96aMTxqD/61D/Stu5MsXa89jOkVvLlYl+uZhlcHKXp7btp6x9dmaXNbbcLbggl7oagD/Bf7De7py1xb+jDazKczoWasgn63Gx25p4pTE/8UOHX3QsfrTrq5XDttUuZHFpwfE3oz+p2QPZ1EgN/p9iWyhwLsG2cMP0aSy+6sRkOkvGbzSMIdFiJrwsLAd407avyUymQYbQx3jp6BpknIx1jLaOz6PoenQetiLT98rU58DIBNxIHzr4vdn/UVoWgi6p8vTMIpKMfo78qgqhtU019c637MZqrUya6gL0GEe/Q5E6LSQTowWtmmYOpInNUv9u7FWzEgGHMjzz0TdRnG3tb4KB/ZO+Le/aBGC/8CLfYVyQHjuyXQ9fTXCwkQr/CBt0/W4kKmH8D/AixakN3rPVw4HA2Lt3BC64x62wH4PbFMWQ+7Fbd2DQsDYprbhXJCTZqgGgn9/dQSsMvmacLVjYI+VaUSG07H1eovpOH781Y1N1tRiaf2aVjHsMWhN0aFtbvUBOO0PCbYtoypaTLkdpf1dfZaKcHjsCpFTCjcZ/zxkTt4G/Tn1P9ikXK2bwczhTfKzDCezjJHmvNjyqWedML7XtJ5GtvjKU1sUKDVWSbkkC+Rf/DBb5LamAOlYTsS+Ff0Fc8cRIdFMBliuPE=
