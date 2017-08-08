@@ -17,7 +17,7 @@ after_success:
 - git config --global user.email "builds@travis-ci.com"
 - git config --global user.name "Travis CI"
 - git tag -f draft HEAD
-- git push --tags https://${GITHUB_OAUTH_TOKEN}@github.com/vikraman/ci-release-pdf-test.git
+- git push --tags -f https://${GITHUB_OAUTH_TOKEN}@github.com/vikraman/ci-release-pdf-test.git
 deploy:
   provider: releases
   api_key: ${GITHUB_OAUTH_TOKEN}
