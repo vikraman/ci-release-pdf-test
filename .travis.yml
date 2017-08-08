@@ -3,7 +3,7 @@ language:
 before_install:
 - sudo add-apt-repository -y ppa:jonathonf/texlive-2016
 - sudo apt-get -qq -y update
-- sudo apt-get -qq -y install texlive texlive-latex-extra latexmk
+- sudo apt-get -qq -y install texlive-full
 script:
 - make
 deploy:
