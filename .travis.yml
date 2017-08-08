@@ -9,7 +9,7 @@ addons:
     packages:
     - texlive
     - texlive-latex-extra
-    - texlive-xelatex
+    - texlive-xetex
     - latexmk
 script:
 - make
