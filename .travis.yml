@@ -7,7 +7,9 @@ addons:
     sources:
     - sourceline: 'ppa:jonathonf/texlive-2016'
     packages:
-    - texlive-full
+    - texlive
+    - texlive-latex-extra
+    - latexmk
 script:
 - make
 deploy:
