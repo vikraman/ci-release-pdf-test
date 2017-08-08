@@ -1,9 +1,13 @@
-language:
-  generic
-before_install:
-- sudo add-apt-repository -y ppa:jonathonf/texlive-2016
-- sudo apt-get -qq -y update
-- sudo apt-get -qq -y install texlive-full
+sudo: false
+language: generic
+cache:
+  apt: true
+addons:
+  apt:
+    sources:
+    - sourceline: 'ppa:jonathonf/texlive-2016'
+    packages:
+    - texlive-full
 script:
 - make
 deploy:
